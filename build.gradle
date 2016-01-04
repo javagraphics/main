@@ -30,7 +30,7 @@ dependencies {
     compile 'com.bric:javagraphics-reflect:0.0.1'
     compile 'com.bric:javagraphics-blog:0.0.1'
     compile 'com.bric:javagraphics-util:0.0.1'
-    compile 'com.bric:javagraphics-geom:0.0.1'
+    compile 'com.bric:javagraphics-geom:0.0.2'
     compile 'com.bric:javagraphics-strokes:0.0.1'
 
     compile fileTree(dir: 'lib', include: ['*.jar'])
