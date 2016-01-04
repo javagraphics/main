@@ -28,6 +28,7 @@ sourceSets {
 dependencies {
     compile 'com.bric:javagraphics-math:0.0.1'
     compile 'com.bric:javagraphics-reflect:0.0.1'
+    compile 'com.bric:javagraphics-blog:0.0.1'
     compile 'com.bric:javagraphics-util:0.0.1'
     compile 'net.sf.trove4j:trove4j:2.0.4'
 
