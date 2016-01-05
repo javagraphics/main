@@ -36,6 +36,8 @@ dependencies {
     compile 'com.bric:javagraphics-throbber:0.0.1'
     compile 'com.bric:javagraphics-awt:0.0.1'
 
+    compile 'org.swinglabs:swing-layout:1.0.3'
+
     compile fileTree(dir: 'lib', include: ['*.jar'])
 
     compile files("${System.properties['java.home']}/jre/lib/javaws.jar")
