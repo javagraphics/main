@@ -18,6 +18,9 @@ repositories {
     maven {
         url 'http://mvn.topobyte.de'
     }
+    maven {
+        url 'http://mvn.slimjars.com'
+    }
     mavenCentral()
 }
 
@@ -26,15 +29,17 @@ sourceSets {
 }
 
 dependencies {
-    compile 'com.bric:javagraphics-math:0.0.1'
+    compile 'com.bric:javagraphics-math:0.1.0'
     compile 'com.bric:javagraphics-reflect:0.0.1'
     compile 'com.bric:javagraphics-blog:0.0.1'
     compile 'com.bric:javagraphics-util:0.0.1'
-    compile 'com.bric:javagraphics-geom:0.0.2'
+    compile 'com.bric:javagraphics-geom:0.1.0'
     compile 'com.bric:javagraphics-io:0.0.1'
-    compile 'com.bric:javagraphics-strokes:0.0.1'
+    compile 'com.bric:javagraphics-strokes:0.1.0'
     compile 'com.bric:javagraphics-throbber:0.0.1'
-    compile 'com.bric:javagraphics-awt:0.0.1'
+    compile 'com.bric:javagraphics-awt:0.1.0'
+
+    compile 'com.slimjars.trove4j:trove4j-short-object-hash-map:1.0.1'
 
     compile 'org.swinglabs:swing-layout:1.0.3'
 

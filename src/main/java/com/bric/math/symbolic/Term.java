@@ -19,10 +19,6 @@
  */
 package com.bric.math.symbolic;
 
-import gnu.trove.TShortObjectHashMap;
-import gnu.trove.TShortObjectProcedure;
-import gnu.trove.TShortProcedure;
-
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.MathContext;
@@ -35,6 +31,10 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
+import com.slimjars.dist.gnu.trove.map.hash.TShortObjectHashMap;
+import com.slimjars.dist.gnu.trove.procedure.TShortObjectProcedure;
+import com.slimjars.dist.gnu.trove.procedure.TShortProcedure;
+
 /** An immutable cluster of variables, each raised to a unique power, with a leading coefficient.
  * Negative and fractional powers and coefficients are supported.
  * <p>Internally this maps each variable name to a static ID, and this ID uses 2-bytes. So
@@ -45,7 +45,7 @@ import java.util.TreeSet;
  */
 public class Term implements Comparable<Term> {
 	private static long idCtr = 0;
-	
+
 	private static synchronized TShortObjectHashMap<Fraction> createVariableMap(String... variableNames) {
 		final TShortObjectHashMap<Fraction> returnValue = new TShortObjectHashMap<Fraction>();
 		for(int a = 0; a<variableNames.length; a++) {
@@ -324,7 +324,7 @@ public class Term implements Comparable<Term> {
 	 * @return a new Term that divides this Term by the argument.
 	 */
 	public Term divideBy(final Term divisor) {
-		final TShortObjectHashMap<Fraction> newMap = variableMap.clone();
+		final TShortObjectHashMap<Fraction> newMap = new TShortObjectHashMap<>(variableMap);
 		
 		divisor.variableMap.forEachEntry(new TShortObjectProcedure<Fraction>() {
 			@Override
@@ -503,7 +503,7 @@ public class Term implements Comparable<Term> {
 		if(coefficient.isZero() || t.coefficient.isZero())
 			return new Term(0, 1, new TShortObjectHashMap<Fraction>());
 
-		final TShortObjectHashMap<Fraction> newVariables = variableMap.clone();
+		final TShortObjectHashMap<Fraction> newVariables = new TShortObjectHashMap<>(variableMap);
 		
 		t.variableMap.forEachEntry(new TShortObjectProcedure<Fraction>() {
 			@Override
@@ -597,8 +597,8 @@ public class Term implements Comparable<Term> {
 	public Term removeVariable(String variableName) {
 		Short id = Term.getIDForVariable(variableName);
 		if(id==null) return this;
-		
-		final TShortObjectHashMap<Fraction> newVariables = variableMap.clone();
+
+		final TShortObjectHashMap<Fraction> newVariables = new TShortObjectHashMap<>(variableMap);
 		newVariables.remove(id);
 		
 		return new Term(coefficient, newVariables);
