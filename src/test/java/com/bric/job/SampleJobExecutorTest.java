@@ -92,7 +92,7 @@ public class SampleJobExecutorTest extends TestCase {
 			}
 			
 		};
-		executor.join();
+		executor.start(true);
 		
 		for(int a = 0; a<allResults.length; a++) {
 			assertEquals( new Integer(a), allResults[a]);
