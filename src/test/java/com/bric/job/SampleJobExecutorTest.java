@@ -55,7 +55,7 @@ public class SampleJobExecutorTest extends TestCase {
 	 */
 	@Test
 	public void testCountingJob() {
-		final Integer[] allResults = new Integer[100003];
+		final Integer[] allResults = new Integer[5000003];
 		final List<Throwable> errors = new LinkedList<Throwable>();
 		final Map<String, MutableInteger> usage = new TreeMap<String, MutableInteger>();
 		CountingJob countingJob = new CountingJob(allResults.length);
