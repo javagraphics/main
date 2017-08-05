@@ -114,7 +114,7 @@ public class JPEGMetaDataTest extends TestCase {
 		
 		File base = limitedTestPool ? 
 				new File(System.getProperty("user.dir")+
-						s+"tests"+s+"com"+s+"bric"+s+"image"+s+"resources"+s) :
+						s+"src"+s+"test"+s+"resources"+s+"com"+s+"bric"+s+"image"+s+"resources"+s) :
 				new File(System.getProperty("user.home"));
 		FileTreeIterator i = new FileTreeIterator(
 				base,
